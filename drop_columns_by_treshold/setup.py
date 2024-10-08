@@ -6,7 +6,7 @@ with open("README.md", "r", encoding = "utf-8") as fh:
 
 setuptools.setup(
     name = "drop_columns_by_treshold",
-    version = "0.0.4",
+    version = "0.0.7",
     author = "Ganbaatar Bold",
     author_email = "elmerganbaa@gmail.com",
     description = "drop_columns_by_treshold",
