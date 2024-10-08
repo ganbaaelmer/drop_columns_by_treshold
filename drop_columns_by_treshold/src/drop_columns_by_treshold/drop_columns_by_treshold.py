@@ -2,8 +2,17 @@ import pandas as pd
 import seaborn as sns # data visualization library
 import matplotlib.pyplot as plt # plotting library
 
-#v0.0.1
+#v0.0.4
+
+# Find out the columns that need to be dropped for a given threshold:
+def get_nan_cols(df, nan_percent):
+    threshold = len(df.index) * nan_percent
+    return [c for c in df.columns if df[c].isnull().sum() >= threshold]
+
+
 def drop_columns_by_treshold(file_name, nan_percent):
+    nan_percent = nan_percent/100
+
     df = pd.read_csv(file_name)
     sns.heatmap(df.isnull(), cbar=False, cmap='CMRmap')
     plt.title('before drop columns by treshold: missing values showing through heatmap')
@@ -14,12 +23,6 @@ def drop_columns_by_treshold(file_name, nan_percent):
     print("before delete columns: ", df.columns.tolist())
 
     # Find out the columns that need to be dropped for a given threshold:
-    def get_nan_cols(df, nan_percent):
-        threshold = len(df.index) * nan_percent
-        return [c for c in df.columns if df[c].isnull().sum() >= threshold]
-
-    
-
     cols_to_del = get_nan_cols(df, nan_percent)
     cols_to_del
 
@@ -43,13 +46,12 @@ def drop_columns_by_treshold(file_name, nan_percent):
     plt.title('after dropped columns by treshold: missing values showing through heatmap')
     plt.show()
 
-
     return df
 
 
 
 # test
 file_name = "billing_subscriber.csv"
-threshold = 0.1
+threshold = 1 # NA percent 1%
 
 #df = drop_columns_by_treshold(file_name, threshold)

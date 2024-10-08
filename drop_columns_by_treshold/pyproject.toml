@@ -1,6 +1,6 @@
 [project]
 name = "drop_columns_by_treshold"
-version = "0.0.1"
+version = "0.0.4"
 authors = [
   { name="elmerganbaa", email="elmerganbaa@gmail.com" },
 ]
