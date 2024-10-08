@@ -2,7 +2,7 @@ import pandas as pd
 import seaborn as sns # data visualization library
 import matplotlib.pyplot as plt # plotting library
 
-#v0.0.7
+#v0.0.8
 
 # Find out the columns that need to be dropped for a given threshold:
 def get_nan_cols(df, nan_percent):
